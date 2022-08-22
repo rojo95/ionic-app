@@ -1,0 +1,58 @@
+.container {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 43%;
+  margin: 20px;
+}
+
+.btn {
+  border-radius: 3px;
+  background-color: var(--ion-color-custom);
+  color: var(--ion-color-custom-contrast);
+  font-size: 15px;
+  padding: 10px;
+  width: 120px;
+  margin-top: 10px;
+}
+
+.btn:disabled {
+  background-color: var(--ion-color-custom-disable);
+  color: rgba(var(--ion-color-custom-rgb), 0.25);
+}
+
+.button-div {
+  text-align: right;
+  margin-right: 20px;
+  margin-top: 20px;
+  width: 50%;
+}
+
+.title {
+  position: absolute;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+img {
+  border-radius: 50%;
+  width: 180px;
+}
+
+.link  {
+  font-size: medium;
+  background-color: transparent;
+  color: var(--ion-color-custom);
+  text-decoration: none;
+}
+
+.container-buttons {
+  display: flex;
+}
+
+.error {
+  color: var(--ion-color-danger);
+  font-size: 14px;
+}

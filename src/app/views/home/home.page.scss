@@ -1,0 +1,28 @@
+ion-toolbar {
+  background-color: var(--ion-color-custom);
+  color: var(--ion-color-custom-contrast);
+}
+
+.btn {
+  background-color: var(--ion-color-custom-shade) !important;
+  color: var(--ion-color-custom-contrast);
+  padding: 20px 30px 20px 30px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.container {
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  position: absolute;
+  left: 20px;
+  right: 20px;
+}
+
+.texto {
+  background-color: rgba(var(--ion-color-custom-rgb), 0.14);
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

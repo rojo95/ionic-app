@@ -1,0 +1,17 @@
+{
+  "android_version": "1.0.0",
+  "ios_version": "1.0.0",
+  "android_active": true,
+  "ios_active": true,
+  "app_active": true,
+  "users": [
+    {
+      "user": "user",
+      "email":"usuario@gmail.com",
+      "nombre": "Usuario",
+      "lastnames": "De Prueba",
+      "password": "123456",
+      "token": "6aw466KK-3ste-es.M1_T0KeN!"
+    }
+  ]
+}

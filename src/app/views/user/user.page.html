@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="custom">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{user.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeSm="8" offsetSm="2">
+        <ion-card>
+          <img src="{{user.image}}" alt="user.name">
+          <div class="text">
+            <h3>Información Básica</h3>
+            <p>Especie: {{user.species}}</p>
+            <p *ngIf="user.type">Tipo: {{user.type}}</p>
+            <p>Género: {{user.gender}}</p>
+            <p>Estatus: {{user.status}}</p>
+            <p>Orígen: {{user.origin.name}}</p>
+            <p>Localización: {{user.location.name}}</p>
+            <h3></h3>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

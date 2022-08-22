@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="custom">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>geolocation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngIf="location.locality">
+    <ion-card-header>
+      <ion-card-title>{{location.countryName}}</ion-card-title>
+      <ion-card-subtitle>Código Postal {{location.postalCode}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>{{location.locality}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{location.administrativeArea}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{location.subAdministrativeArea}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{location.subLocality}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{location.thoroughfare}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{location.subThoroughfare}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{location.areasOfInterest}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Ubicación Geografica: {{location.latitude+' '+location.longitude}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <br>
+
+  <div class="container" *ngIf="!location.locality">
+    <ion-button (click)="locate()">Obtener Ubicación</ion-button>
+    <br>
+  </div>
+  {{direccion}}
+
+</ion-content>

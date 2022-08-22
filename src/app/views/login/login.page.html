@@ -1,0 +1,43 @@
+
+<ion-content>
+
+  <div class="title">
+      <h2>
+        LOGIN MAMÓN
+      </h2>
+      <img src="assets/img/dios_maquina.png" alt="" srcset="">
+  </div>
+
+  <div class="container">
+    <form [formGroup]="form" (ngSubmit)="ingresar()" novalidate>
+      <div>
+        <ion-item lines="full">
+          <ion-label position="floating">Correo/Usuario</ion-label>
+          <ion-input name="user" class="text" required="" formControlName="email"></ion-input>
+        </ion-item>
+        <span class="error" *ngIf="form.get('email').hasError('required')">El campo es requerido</span>
+        <span class="error" *ngIf="form.get('email').hasError('minlength')">El campo es demasiado corto</span>
+        <ion-item lines="full">
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password"  name="password" class="text" required="" formControlName="password"></ion-input>
+        </ion-item>
+        <span class="error" *ngIf="form.get('password').hasError('required')">El campo es requerido</span>
+        <span class="error" *ngIf="form.get('password').hasError('minlength')">El campo es demasiado corto</span>
+      </div>
+      <div class="container-buttons">
+        <div class="col">
+          <button class="btn" ion-button color="primary" [disabled]="form.invalid">INGRESAR</button>
+        </div>
+        <div class="button-div">
+          <a routerLink="/recuperar-password" class="link">
+            recuperar clave
+          </a>
+        </div>
+      </div>
+    </form>
+    <br>
+  </div>
+
+
+</ion-content>
+

@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Caracas",
+      "description": "Caracas, la capital de Venezuela, es un centro comercial y cultural ubicado en un valle montañoso del norte. El líder de la independencia Simón Bolívar está enterrado en el Panteón Nacional de Venezuela, establecido en el siglo XIX en el casco antiguo de la ciudad. La Catedral de Caracas, un lugar emblemático de la arquitectura romanesca, data del siglo XVII. Las torres gemelas de 225 de altura en el Parque Central son el símbolo del perfil de la ciudad.",
+      "image": "caracas"
+    },
+    {
+      "id": 2,
+      "name": "Berlin",
+      "description": "Berlín, capital alemana, data del siglo XIII. Los elementos que recuerdan la turbulenta historia de la ciudad en el siglo XX incluyen el Monumento del Holocausto y los restos del Muro de Berlín con grafitis. Después de dividirse durante la Guerra Fría, la Puerta de Brandeburgo del siglo XVIII se convirtió en un símbolo de la reunificación. La ciudad es conocida por su ambiente artístico y los sitios geográficos modernos, como la Filarmónica de Berlín, construida en 1963, de color dorado y con un diseño de paneles que se desprenden de su techo.",
+      "image": "berlin"
+    },
+    {
+      "id": 3,
+      "name": "Oporto",
+      "description": "Oporto es una ciudad costera en el noroeste de Portugal, conocida por sus imponentes puentes y la producción del oporto. En el distrito medieval de la Ribeira, las calles angostas de adoquines están bordeadas de casas de mercaderes y cafés. La Iglesia de San Francisco es conocida por su extravagante interior barroco, con tallados ornamentales cubiertos de oro. El Palácio de Bolsa del siglo XIX, antiguamente una bolsa de valores, fue construido para impresionar a los posibles inversionistas europeos.",
+      "image": "oporto"
+    },
+    {
+      "id": 4,
+      "name": "Texas",
+      "description": "Texas es un gran estado del sur de EE.UU. con desiertos, bosques de pino y el río Grande que forma la frontera con México. En su ciudad más grande, Houston, está el Museo de Bellas Artes, que cuenta con obras de reconocidos pintores impresionistas y renacentistas, mientras que el Centro Espacial Houston ofrece exhibiciones interactivas diseñadas por la NASA. Austin, la capital, es conocida por su variada escena musical y la Biblioteca Presidencial LBJ.",
+      "image": "texas"
+    },
+    {
+      "id": 5,
+      "name": "Madrid",
+      "description": "Madrid es un municipio y una ciudad de España. La localidad, con categoría histórica de villa, ​ es la capital del Estado​ y de la Comunidad de Madrid.",
+      "image": "madrid"
+    }
+  ]
+}

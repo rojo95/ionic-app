@@ -7,10 +7,32 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { NativeGeocoder } from '@awesome-cordova-plugins/native-geocoder/ngx';
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+// probando
+// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { InterceptorService } from './services/interceptor/interceptor.service';
+
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
+    // FormsModule,
+    // ReactiveFormsModule
+  ],
+  providers: [
+    BarcodeScanner,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+    Geolocation,
+    NativeGeocoder
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

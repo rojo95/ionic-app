@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="custom">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>customers</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="custom">
+    <ion-searchbar placeholder="Buscar" animated="" (ionChange)="searchCustomer($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list *ngIf="permission">
+    <ion-list-header> Conversaciones Recientes </ion-list-header>
+
+    <ion-item *ngFor="let customer of searchedCustomer">
+      <ion-avatar slot="start">
+        <img src="assets/img/customers/{{customer.image}}.png" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{customer.name}}</h2>
+        <h3>{{customer.state}}</h3>
+        <p>{{customer.description}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-label *ngIf="!permission">No posee permisos para ver a los clientes.</ion-label>
+
+</ion-content>
