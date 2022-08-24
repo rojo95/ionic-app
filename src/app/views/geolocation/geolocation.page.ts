@@ -40,7 +40,7 @@ export class GeolocationPage implements OnInit {
   async getCity(latitude,longitude) {
     const options: NativeGeocoderOptions = {
       useLocale: true,
-      maxResults: 5,
+      maxResults: 7,
     };
     this.nativeGeocoder.reverseGeocode(latitude, longitude, options)
       .then((result: NativeGeocoderResult[]) => this.saveCity(result))
@@ -62,6 +62,11 @@ export class GeolocationPage implements OnInit {
       buttons: ['Aceptar']
     });
     alert.present();
+  }
+
+  async doRefresh(event) {
+    this.location = ''
+    event.target.complete();
   }
 
 }

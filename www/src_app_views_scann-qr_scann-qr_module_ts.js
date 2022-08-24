@@ -90,7 +90,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ScannQrPage": () => (/* binding */ ScannQrPage)
 /* harmony export */ });
-/* harmony import */ var C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 4929);
 /* harmony import */ var _scann_qr_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scann-qr.page.html?ngResource */ 390);
 /* harmony import */ var _scann_qr_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scann-qr.page.scss?ngResource */ 4917);
@@ -112,7 +112,7 @@ let ScannQrPage = class ScannQrPage {
   scan() {
     var _this = this;
 
-    return (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       console.log('escanear');
 
       _this.barcodeScanner.scan().then(barcodeData => {
@@ -155,7 +155,7 @@ module.exports = ".container {\n  text-align: center;\n  position: absolute;\n  
   \**************************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-header>\n  <ion-toolbar color=\"custom\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>scannQr</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <div class=\"container\">\n    <ion-button sizeXs=\"12\" (click)=\"scan()\">ESCANEAR</ion-button>\n    <br>\n    {{code}}\n  </div>\n\n</ion-content>\n";
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"custom\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>scannQr</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <div class=\"container\">\r\n    <ion-button sizeXs=\"12\" (click)=\"scan()\">ESCANEAR</ion-button>\r\n    <br>\r\n    {{code}}\r\n  </div>\r\n\r\n</ion-content>\r\n";
 
 /***/ })
 

@@ -90,7 +90,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "LoginPage": () => (/* binding */ LoginPage)
 /* harmony export */ });
-/* harmony import */ var C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ 4929);
 /* harmony import */ var _login_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login.page.html?ngResource */ 6117);
 /* harmony import */ var _login_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login.page.scss?ngResource */ 5827);
@@ -132,7 +132,7 @@ let LoginPage = class LoginPage {
   ngOnInit() {}
 
   overrideHardwareBackAction($event) {
-    return (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       yield void 0; // Do nothing
     })();
   }
@@ -140,7 +140,7 @@ let LoginPage = class LoginPage {
   ingresar() {
     var _this = this;
 
-    return (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const data = {
         email: _this.form.get('email')?.value,
         password: _this.form.get('password')?.value
@@ -149,7 +149,7 @@ let LoginPage = class LoginPage {
       if (!_this.form.invalid) {
         (yield _this.loading).present();
         const info = yield _this.tokenService.loguearse(data).subscribe( /*#__PURE__*/function () {
-          var _ref = (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (res) {
+          var _ref = (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (res) {
             if (res.users) {
               const users = res.users;
               const usuario = users.find(item => (item.user === data.email || item.email === data.email) && item.password === data.password);
@@ -181,7 +181,7 @@ let LoginPage = class LoginPage {
   alertMessage(msg) {
     var _this2 = this;
 
-    return (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const alert = yield _this2.alert.create({
         header: 'ERROR AL INGRESAR',
         message: msg + '.',
@@ -238,7 +238,7 @@ module.exports = ".container {\n  position: absolute;\n  left: 20px;\n  right: 2
   \********************************************************/
 /***/ ((module) => {
 
-module.exports = "\n<ion-content>\n\n  <div class=\"title\">\n      <h2>\n        LOGIN MAMÓN\n      </h2>\n      <img src=\"assets/img/dios_maquina.png\" alt=\"\" srcset=\"\">\n  </div>\n\n  <div class=\"container\">\n    <form [formGroup]=\"form\" (ngSubmit)=\"ingresar()\" novalidate>\n      <div>\n        <ion-item lines=\"full\">\n          <ion-label position=\"floating\">Correo/Usuario</ion-label>\n          <ion-input name=\"user\" class=\"text\" required=\"\" formControlName=\"email\"></ion-input>\n        </ion-item>\n        <span class=\"error\" *ngIf=\"form.get('email').hasError('required')\">El campo es requerido</span>\n        <span class=\"error\" *ngIf=\"form.get('email').hasError('minlength')\">El campo es demasiado corto</span>\n        <ion-item lines=\"full\">\n          <ion-label position=\"floating\">Contraseña</ion-label>\n          <ion-input type=\"password\"  name=\"password\" class=\"text\" required=\"\" formControlName=\"password\"></ion-input>\n        </ion-item>\n        <span class=\"error\" *ngIf=\"form.get('password').hasError('required')\">El campo es requerido</span>\n        <span class=\"error\" *ngIf=\"form.get('password').hasError('minlength')\">El campo es demasiado corto</span>\n      </div>\n      <div class=\"container-buttons\">\n        <div class=\"col\">\n          <button class=\"btn\" ion-button color=\"primary\" [disabled]=\"form.invalid\">INGRESAR</button>\n        </div>\n        <div class=\"button-div\">\n          <a routerLink=\"/recuperar-password\" class=\"link\">\n            recuperar clave\n          </a>\n        </div>\n      </div>\n    </form>\n    <br>\n  </div>\n\n\n</ion-content>\n\n";
+module.exports = "\r\n<ion-content>\r\n\r\n  <div class=\"title\">\r\n      <h2>\r\n        LOGIN MAMÓN\r\n      </h2>\r\n      <img src=\"assets/img/dios_maquina.png\" alt=\"\" srcset=\"\">\r\n  </div>\r\n\r\n  <div class=\"container\">\r\n    <form [formGroup]=\"form\" (ngSubmit)=\"ingresar()\" novalidate>\r\n      <div>\r\n        <ion-item lines=\"full\">\r\n          <ion-label position=\"floating\">Correo/Usuario</ion-label>\r\n          <ion-input name=\"user\" class=\"text\" required=\"\" formControlName=\"email\"></ion-input>\r\n        </ion-item>\r\n        <span class=\"error\" *ngIf=\"form.get('email').hasError('required')\">El campo es requerido</span>\r\n        <span class=\"error\" *ngIf=\"form.get('email').hasError('minlength')\">El campo es demasiado corto</span>\r\n        <ion-item lines=\"full\">\r\n          <ion-label position=\"floating\">Contraseña</ion-label>\r\n          <ion-input type=\"password\"  name=\"password\" class=\"text\" required=\"\" formControlName=\"password\"></ion-input>\r\n        </ion-item>\r\n        <span class=\"error\" *ngIf=\"form.get('password').hasError('required')\">El campo es requerido</span>\r\n        <span class=\"error\" *ngIf=\"form.get('password').hasError('minlength')\">El campo es demasiado corto</span>\r\n      </div>\r\n      <div class=\"container-buttons\">\r\n        <div class=\"col\">\r\n          <button class=\"btn\" ion-button color=\"primary\" [disabled]=\"form.invalid\">INGRESAR</button>\r\n        </div>\r\n        <div class=\"button-div\">\r\n          <a routerLink=\"/recuperar-password\" class=\"link\">\r\n            recuperar clave\r\n          </a>\r\n        </div>\r\n      </div>\r\n    </form>\r\n    <br>\r\n  </div>\r\n\r\n\r\n</ion-content>\r\n\r\n";
 
 /***/ })
 

@@ -9,6 +9,10 @@
 
 <ion-content>
 
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <ion-card *ngIf="location.locality">
     <ion-card-header>
       <ion-card-title>{{location.countryName}}</ion-card-title>

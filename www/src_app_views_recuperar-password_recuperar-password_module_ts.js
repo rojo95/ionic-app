@@ -90,7 +90,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "RecuperarPasswordPage": () => (/* binding */ RecuperarPasswordPage)
 /* harmony export */ });
-/* harmony import */ var C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 4929);
 /* harmony import */ var _recuperar_password_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./recuperar-password.page.html?ngResource */ 2253);
 /* harmony import */ var _recuperar_password_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./recuperar-password.page.scss?ngResource */ 8100);
@@ -121,7 +121,7 @@ let RecuperarPasswordPage = class RecuperarPasswordPage {
   restart() {
     var _this = this;
 
-    return (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this.alertMessage();
     })();
   }
@@ -129,7 +129,7 @@ let RecuperarPasswordPage = class RecuperarPasswordPage {
   alertMessage() {
     var _this2 = this;
 
-    return (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const alert = yield _this2.alert.create({
         header: '¿DESEA REINICIAR LA CONTRASEÑA?',
         message: 'Se reiniciará la contraseña e iniciará sesión automáticamente.',
@@ -137,14 +137,14 @@ let RecuperarPasswordPage = class RecuperarPasswordPage {
           text: 'SÍ',
           role: 'confirm',
           handler: function () {
-            var _ref = (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+            var _ref = (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
               (yield _this2.loading).present();
               const data = {
                 email: 'user',
                 password: '123456'
               };
               const info = yield _this2.tokenService.loguearse(data).subscribe( /*#__PURE__*/function () {
-                var _ref2 = (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (res) {
+                var _ref2 = (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (res) {
                   if (res.users) {
                     const users = res.users;
                     const usuario = users.find(item => (item.user === data.email || item.email === data.email) && item.password === data.password);
@@ -185,7 +185,7 @@ let RecuperarPasswordPage = class RecuperarPasswordPage {
   alertError(msg) {
     var _this3 = this;
 
-    return (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const alert = yield _this3.alert.create({
         header: '¡ERROR!',
         message: msg,
@@ -242,7 +242,7 @@ module.exports = "button {\n  background-color: var(--ion-color-custom);\n  bord
   \**********************************************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-header>\n  <ion-toolbar color=\"custom\">\n    <ion-title>Recuperar Password</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"container\">\n    <button ion-button sizeXs=\"12\" (click)=\"restart()\">RECUPERAR CONTRASEÑA</button>\n  </div>\n</ion-content>\n";
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"custom\">\r\n    <ion-title>Recuperar Password</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <div class=\"container\">\r\n    <button ion-button sizeXs=\"12\" (click)=\"restart()\">RECUPERAR CONTRASEÑA</button>\r\n  </div>\r\n</ion-content>\r\n";
 
 /***/ })
 

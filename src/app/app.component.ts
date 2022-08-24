@@ -18,6 +18,7 @@ export class AppComponent {
     { title: 'Cities', url: '/cities', icon: 'business' },
     { title: 'Users', url: '/userslist', icon: 'planet' },
     { title: 'Geolocation', url: '/geolocation', icon: 'location' },
+    { title: 'Maps', url: '/map', icon: 'map' },
   ];
 
   // appVersion = this.apiService.version;

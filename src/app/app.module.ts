@@ -11,10 +11,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { NativeGeocoder } from '@awesome-cordova-plugins/native-geocoder/ngx';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
-// probando
-// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { InterceptorService } from './services/interceptor/interceptor.service';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,9 +21,7 @@ import { InterceptorService } from './services/interceptor/interceptor.service';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule,
-    // FormsModule,
-    // ReactiveFormsModule
+    HttpClientModule
   ],
   providers: [
     BarcodeScanner,

@@ -90,7 +90,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "GeolocationPage": () => (/* binding */ GeolocationPage)
 /* harmony export */ });
-/* harmony import */ var C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 4929);
 /* harmony import */ var _geolocation_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./geolocation.page.html?ngResource */ 6209);
 /* harmony import */ var _geolocation_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./geolocation.page.scss?ngResource */ 2723);
@@ -125,7 +125,7 @@ let GeolocationPage = class GeolocationPage {
   locate() {
     var _this = this;
 
-    return (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       (yield _this.loading).present();
       const coordinates = yield _this.geolocation.getCurrentPosition();
       _this.coords = coordinates.coords;
@@ -138,10 +138,10 @@ let GeolocationPage = class GeolocationPage {
   getCity(latitude, longitude) {
     var _this2 = this;
 
-    return (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const options = {
         useLocale: true,
-        maxResults: 5
+        maxResults: 7
       };
 
       _this2.nativeGeocoder.reverseGeocode(latitude, longitude, options).then(result => _this2.saveCity(result)).catch(error => _this2.alertPresent(error, '¡ERROR!'));
@@ -159,13 +159,22 @@ let GeolocationPage = class GeolocationPage {
   alertPresent(data, title) {
     var _this3 = this;
 
-    return (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const alert = yield _this3.alert.create({
         header: title,
         message: data,
         buttons: ['Aceptar']
       });
       alert.present();
+    })();
+  }
+
+  doRefresh(event) {
+    var _this4 = this;
+
+    return (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+      _this4.location = '';
+      event.target.complete();
     })();
   }
 
@@ -206,7 +215,7 @@ module.exports = ".container {\n  text-align: center;\n  position: absolute;\n  
   \********************************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-header>\n  <ion-toolbar color=\"custom\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>geolocation</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-card *ngIf=\"location.locality\">\n    <ion-card-header>\n      <ion-card-title>{{location.countryName}}</ion-card-title>\n      <ion-card-subtitle>Código Postal {{location.postalCode}}</ion-card-subtitle>\n    </ion-card-header>\n\n    <ion-card-content>\n      <ion-list>\n        <ion-item>\n          <ion-label>{{location.locality}}</ion-label>\n        </ion-item>\n        <ion-item>\n          <ion-label>{{location.administrativeArea}}</ion-label>\n        </ion-item>\n        <ion-item>\n          <ion-label>{{location.subAdministrativeArea}}</ion-label>\n        </ion-item>\n        <ion-item>\n          <ion-label>{{location.subLocality}}</ion-label>\n        </ion-item>\n        <ion-item>\n          <ion-label>{{location.thoroughfare}}</ion-label>\n        </ion-item>\n        <ion-item>\n          <ion-label>{{location.subThoroughfare}}</ion-label>\n        </ion-item>\n        <ion-item>\n          <ion-label>{{location.areasOfInterest}}</ion-label>\n        </ion-item>\n        <ion-item>\n          <ion-label>Ubicación Geografica: {{location.latitude+' '+location.longitude}}</ion-label>\n        </ion-item>\n      </ion-list>\n    </ion-card-content>\n  </ion-card>\n  <br>\n\n  <div class=\"container\" *ngIf=\"!location.locality\">\n    <ion-button (click)=\"locate()\">Obtener Ubicación</ion-button>\n    <br>\n  </div>\n  {{direccion}}\n\n</ion-content>\n";
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"custom\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>geolocation</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <ion-refresher slot=\"fixed\" (ionRefresh)=\"doRefresh($event)\">\r\n    <ion-refresher-content></ion-refresher-content>\r\n  </ion-refresher>\r\n\r\n  <ion-card *ngIf=\"location.locality\">\r\n    <ion-card-header>\r\n      <ion-card-title>{{location.countryName}}</ion-card-title>\r\n      <ion-card-subtitle>Código Postal {{location.postalCode}}</ion-card-subtitle>\r\n    </ion-card-header>\r\n\r\n    <ion-card-content>\r\n      <ion-list>\r\n        <ion-item>\r\n          <ion-label>{{location.locality}}</ion-label>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label>{{location.administrativeArea}}</ion-label>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label>{{location.subAdministrativeArea}}</ion-label>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label>{{location.subLocality}}</ion-label>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label>{{location.thoroughfare}}</ion-label>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label>{{location.subThoroughfare}}</ion-label>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label>{{location.areasOfInterest}}</ion-label>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label>Ubicación Geografica: {{location.latitude+' '+location.longitude}}</ion-label>\r\n        </ion-item>\r\n      </ion-list>\r\n    </ion-card-content>\r\n  </ion-card>\r\n  <br>\r\n\r\n  <div class=\"container\" *ngIf=\"!location.locality\">\r\n    <ion-button (click)=\"locate()\">Obtener Ubicación</ion-button>\r\n    <br>\r\n  </div>\r\n  {{direccion}}\r\n\r\n</ion-content>\r\n";
 
 /***/ })
 

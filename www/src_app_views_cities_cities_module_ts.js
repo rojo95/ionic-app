@@ -90,7 +90,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CitiesPage": () => (/* binding */ CitiesPage)
 /* harmony export */ });
-/* harmony import */ var C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ 4929);
 /* harmony import */ var _cities_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cities.page.html?ngResource */ 8161);
 /* harmony import */ var _cities_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cities.page.scss?ngResource */ 6096);
@@ -134,7 +134,7 @@ let CitiesPage = class CitiesPage {
   presentToast1() {
     var _this = this;
 
-    return (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const toast = yield _this.toastController.create({
         message: 'Ciudad seleccionada',
         duration: 3000,
@@ -147,7 +147,7 @@ let CitiesPage = class CitiesPage {
   presentAlert1() {
     var _this2 = this;
 
-    return (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const alert = yield _this2.alertController.create({
         header: 'Borrar Ciudad',
         message: 'Se ha borrado la ciudad correctamente.',
@@ -162,7 +162,7 @@ let CitiesPage = class CitiesPage {
   presentAlert2() {
     var _this3 = this;
 
-    return (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const alert = yield _this3.alertController.create({
         header: 'Borrar Ciudad',
         message: '¿Estás seguro?',
@@ -185,7 +185,7 @@ let CitiesPage = class CitiesPage {
   }
 
   doRefresh(event) {
-    return (0,C_laragon_www_cursos_ionic_myIonicApp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       console.log('Begin async operation');
       setTimeout(() => {
         console.log('Async operation has ended');
@@ -231,7 +231,7 @@ module.exports = ".card-title {\n  font-size: 23px;\n  font-weight: bold;\n}\n\n
   \**********************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-header>\n  <ion-toolbar color=\"custom\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>cities</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-refresher slot=\"fixed\" (ionRefresh)=\"doRefresh($event)\">\n    <ion-refresher-content></ion-refresher-content>\n  </ion-refresher>\n\n  <ion-row>\n    <ion-col sizeLg=\"6\" sizeMd=\"6\" sizeXs=\"12\" *ngFor=\" let city of cities\">\n\n      <ion-card [routerLink]=\"['/city',city.id]\">\n        <img src=\"assets/img/cities/{{city.image}}.jpg\" alt=\"{{city.name}}\">\n        <div class=\"card-title card-text-margin\">{{city.name}}</div>\n        <div class=\"card-text-margin\">{{city.description.split(' ').slice(0,9).join(' ')}}...</div>\n      </ion-card>\n\n    </ion-col>\n  </ion-row>\n\n</ion-content>\n";
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"custom\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>cities</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-refresher slot=\"fixed\" (ionRefresh)=\"doRefresh($event)\">\r\n    <ion-refresher-content></ion-refresher-content>\r\n  </ion-refresher>\r\n\r\n  <ion-row>\r\n    <ion-col sizeLg=\"6\" sizeMd=\"6\" sizeXs=\"12\" *ngFor=\" let city of cities\">\r\n\r\n      <ion-card [routerLink]=\"['/city',city.id]\">\r\n        <img src=\"assets/img/cities/{{city.image}}.jpg\" alt=\"{{city.name}}\">\r\n        <div class=\"card-title card-text-margin\">{{city.name}}</div>\r\n        <div class=\"card-text-margin\">{{city.description.split(' ').slice(0,9).join(' ')}}...</div>\r\n      </ion-card>\r\n\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n</ion-content>\r\n";
 
 /***/ })
 

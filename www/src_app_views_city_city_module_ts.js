@@ -158,7 +158,7 @@ module.exports = ".text {\n  font-size: 17px;\n  text-align: justify;\n  padding
   \******************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-header>\n  <ion-toolbar color=\"custom\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>{{name}}</ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-back-button text=\"\"></ion-back-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-card>\n    <img src=\"../../../assets/img/cities/{{image}}.jpg\" alt=\"{{name}}\">\n    <div class=\"text\">{{description}}</div>\n  </ion-card>\n\n</ion-content>\n";
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"custom\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>{{name}}</ion-title>\r\n    <ion-buttons slot=\"end\">\r\n      <ion-back-button text=\"\"></ion-back-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <ion-card>\r\n    <img src=\"../../../assets/img/cities/{{image}}.jpg\" alt=\"{{name}}\">\r\n    <div class=\"text\">{{description}}</div>\r\n  </ion-card>\r\n\r\n</ion-content>\r\n";
 
 /***/ })
 
