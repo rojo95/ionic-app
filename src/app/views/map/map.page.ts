@@ -4,11 +4,22 @@ import { AlertController, LoadingController } from '@ionic/angular';
 import * as Leaflet from 'leaflet';
 import { antPath } from 'leaflet-ant-path';
 
+import 'leaflet-routing-machine';
+
+// configuracion del icono origen
+const iconOrigin = {icon: Leaflet.icon({
+  iconSize: [ 40, 40],
+  iconAnchor: [ 20, 22 ],
+  iconUrl: 'assets/img/icon.png',
+  // shadowUrl: 'assets/img/map_markers/marker-shadow.png'
+})}
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.page.html',
   styleUrls: ['./map.page.scss'],
 })
+
 export class MapPage implements OnInit, OnDestroy {
   map: Leaflet.Map;
   loading = this.loadingCtrl.create();
@@ -19,7 +30,10 @@ export class MapPage implements OnInit, OnDestroy {
   objetivo: any = [10.496229, -66.848901]; // ubicacion plaza francia
   path: any;
 
+  interval: any;
 
+  // control de la ruta
+  routeControl: any;
 
   constructor(
     private geolocation: Geolocation,
@@ -28,9 +42,8 @@ export class MapPage implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() :void {
-    setInterval(() => {
-      this.resetMap();
-      console.log('resetMap')
+    this.interval = setInterval(() => {
+      this.updateMap();
      }, 3000);
    }
 
@@ -39,35 +52,16 @@ export class MapPage implements OnInit, OnDestroy {
 /**
  * Funcion para actualizar la posicion del usuario y la ruta al objetivo
  */
-  async resetMap(){
+  async updateMap(){
 
     this.coords = await (await this.geolocation.getCurrentPosition()).coords;
-    const iconOrigin = {icon: Leaflet.icon({
-      iconSize: [25,41],
-      iconAnchor: [ 13, 40 ],
-      iconUrl: 'assets/img/map_markers/marker-icon.png',
-      shadowUrl: 'assets/img/map_markers/marker-shadow.png'
-    })};
-
-    this.map.removeLayer(this.usermarker);
-    this.map.removeLayer(this.path);
-    this.usermarker = Leaflet.marker([this.coords.latitude, this.coords.longitude],iconOrigin).addTo(this.map);
-    this.usermarker.setLatLng([this.coords.latitude, this.coords.longitude]);
-    this.path = antPath([[this.coords.latitude, this.coords.longitude], this.objetivo],
-      {
-        delay: 800,
-        dashArray: [
-          10,
-          15
-        ],
-        weight: 3,
-        pulseColor: "#FFFFFF",
-        paused: false,
-        hardwareAccelerated: true,
-        color: '#660fef',
-        opacity: 0.5
-      })
-      .addTo(this.map);
+    this.usermarker.remove();
+    this.usermarker = Leaflet.marker([this.coords.latitude, this.coords.longitude], iconOrigin).addTo(this.map).bindPopup('Tú');
+    this.path.setWaypoints([
+      Leaflet.latLng([this.coords.latitude, this.coords.longitude]),
+      this.path.options.waypoints[1],
+    ]);
+    console.log('updateMap');
 
   }
 
@@ -76,11 +70,35 @@ export class MapPage implements OnInit, OnDestroy {
    */
   async locate(){
     (await this.loading).present();
+
+
+
+    // const icon2 = {icon: Leaflet.icon({
+    //   iconSize: [ 25, 41 ],
+    //   iconAnchor: [ 13, 40 ],
+    //   iconUrl: 'assets/img/map_markers/marker-icon.png',
+    //   shadowUrl: 'assets/img/map_markers/marker-shadow.png'
+    // })}
+
+    // configuracion del icono destion
+    const iconDestiny = {icon: Leaflet.icon({
+      iconSize: [ 25, 41 ],
+      iconAnchor: [ 13, 40 ],
+      iconUrl: 'assets/img/map_markers/marker-icon.png',
+      shadowUrl: 'assets/img/map_markers/marker-shadow.png'
+    })}
+
     const coordinates = await this.geolocation.getCurrentPosition();
     this.coords = coordinates.coords;
 
     // zona donde se centrara el mapa
-    this.map = new Leaflet.Map('mapId').setView([this.coords.latitude, this.coords.longitude], 17);
+    this.map = new Leaflet.Map('mapId').setView([this.coords.latitude, this.coords.longitude], 17);;
+
+    // marcador ubicacion
+    this.usermarker = Leaflet.marker([this.coords.latitude, this.coords.longitude], iconOrigin).addTo(this.map).bindPopup('Tú');
+
+    // marcador 2
+    Leaflet.marker(this.objetivo,iconDestiny).addTo(this.map).bindPopup('Pedido');
 
 
     // mapa y titulo del mapa
@@ -88,100 +106,63 @@ export class MapPage implements OnInit, OnDestroy {
       attribution: 'ovnisolutions.com'
     }).addTo(this.map);
 
-    // configuracion del icono origen
-    const iconOrigin = {icon: Leaflet.icon({
-      iconSize: [25,41],
-      iconAnchor: [ 13, 40 ],
-      iconUrl: 'assets/img/map_markers/marker-icon.png',
-      shadowUrl: 'assets/img/map_markers/marker-shadow.png'
-    })}
-
-    // configuracion del icono destion
-    const iconDestiny = {icon: Leaflet.icon({
-      iconSize: [25,41],
-      iconAnchor: [ 13, 40 ],
-      iconUrl: 'assets/img/map_markers/marker-icon.png',
-      shadowUrl: 'assets/img/map_markers/marker-shadow.png'
-    })}
-
-    // marcador 1 centrado
-    this.usermarker = Leaflet.marker([this.coords.latitude, this.coords.longitude], iconOrigin).addTo(this.map).bindPopup('Tú');
-
-    // marcador 2
-    Leaflet.marker(this.objetivo,iconDestiny).addTo(this.map).bindPopup('Pedido').openPopup();
-
-    // ruta
-    this.path = antPath([[this.coords.latitude, this.coords.longitude], this.objetivo],
-      {
-        delay: 800,
-        dashArray: [
-          10,
-          15
+    // configuracion de la ruta
+    this.path = await Leaflet.Routing.control({
+      // createMarker: function(i: number, waypoint: any, n: number) {
+      //   const marker = Leaflet.marker(waypoint.latLng, {
+      //     draggable: false,
+      //     bounceOnAdd: false,
+      //     bounceOnAddOptions: {
+      //       duration: 1000,
+      //       height: 800,
+      //       function() {
+      //         // (bindPopup(myPopup).openOn(map))
+      //       }
+      //     },
+      //     icon: Leaflet.icon({
+      //       iconUrl: 'assets/img/map_markers/marker-icon-2x.png',
+      //       iconSize: [35, 60],
+      //       iconAnchor: [15, 59],
+      //       popupAnchor: [-3, -76],
+      //       shadowUrl: 'assets/img/map_markers/marker-shadow.png',
+      //       shadowSize: [68, 95],
+      //       shadowAnchor: [22, 94]
+      //     })
+      //   })
+      //   return marker;
+      // },
+      // router: Leaflet.Routing.osrmv1({
+      //   language: "es",
+      // }),
+      createMarker: function() {},
+      showAlternatives: true,
+      lineOptions: {
+        styles: [
+          {color: '#660fef', weight: 3},
+          {color: '#fff', weight: 2},
         ],
-        weight: 3,
-        pulseColor: "#FFFFFF",
-        paused: false,
-        hardwareAccelerated: true,
-        color: '#660fef',
-        opacity: 0.5
-      })
-      .addTo(this.map);
-
-    (await this.loading).dismiss();
-
-    this.map.fitBounds(this.path.getBounds());
-
-
-  }
-
-  /**
-   *
-   * Mapa para un solo punto
-   */
-   async ownLocation(){
-    (await this.loading).present();
-    const coordinates = await this.geolocation.getCurrentPosition();
-    this.coords = coordinates.coords;
-
-    this.map = new Leaflet.Map('mapId').setView([this.coords.latitude, this.coords.longitude], 20);
-
-    Leaflet.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-      attribution: 'ovnisolutions.com'
+        extendToWaypoints: false,
+        missingRouteTolerance: 0,
+      },
+      fitSelectedRoutes: false,
+      altLineOptions: {
+        styles: [{color: 'grey', weight: 2}],
+        extendToWaypoints: false,
+        missingRouteTolerance: 0
+      },
+      show: false,
+      routeWhileDragging: true,
+      draggableWaypoints: false,
+      addWaypoints: false,
+      waypoints: [
+        Leaflet.latLng(this.coords.latitude, this.coords.longitude),
+        Leaflet.latLng(this.objetivo)
+      ]
     }).addTo(this.map);
 
-    Leaflet.marker([this.coords.latitude, this.coords.longitude], {icon: Leaflet.icon({
-      iconSize: [25,41],
-      iconAnchor: [ 13, 40 ],
-      iconUrl: 'assets/img/map_markers/marker-icon.png',
-      shadowUrl: 'assets/img/map_markers/marker-shadow.png'
-    })}).addTo(this.map).bindPopup('Tú').openPopup();
-    Leaflet.marker([34, 77]).addTo(this.map).bindPopup('Pedido').openPopup();
-
-    antPath([[this.coords.latitude, this.coords.longitude], [34.1526, 77.5771]],
-      {
-        color: '#FF0000',
-        weight: 5,
-        opacity: 0.6
-       })
-      .addTo(this.map);
-
-    /*
-    Mapa de un unico punto
-    const markPoint = Leaflet.marker([this.coords.latitude, this.coords.longitude], {icon: Leaflet.icon({
-      iconSize: [25,41],
-      iconAnchor: [ 13, 0 ],
-      // specify the path here
-      iconUrl: 'assets/img/map_markers/marker-icon.png',
-      shadowUrl: 'assets/img/map_markers/marker-shadow.png'
-    })});
-    markPoint.bindPopup('<p>Pedido</p>');
-    this.map.addLayer(markPoint);*/
     (await this.loading).dismiss();
 
-    //this.leafletMap()
-    //this.getCity(this.coords);
   }
-
 
   objetivoLocate() {
     this.map.setView(this.objetivo, this.map.getZoom(),{
@@ -198,8 +179,10 @@ export class MapPage implements OnInit, OnDestroy {
   }
 
   /** Remove map when we have multiple map object */
-  ngOnDestroy() {
+  ngOnDestroy() :void {
     this.map.remove();
+    clearInterval(this.interval);
+    console.log('mapa cerrado, se detuvo la actualizacion automatica')
   }
 
 

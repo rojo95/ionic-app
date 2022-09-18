@@ -28,5 +28,7 @@
 // custom style
 @import "assets/styles.scss";
 
-// maps style
+// maps leaflet style
 @import "~leaflet/dist/leaflet.css";
+
+@import "~leaflet-routing-machine/dist/leaflet-routing-machine.css";

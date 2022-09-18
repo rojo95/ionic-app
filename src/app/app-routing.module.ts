@@ -50,7 +50,11 @@ const routes: Routes = [
   {
     path: 'map',
     loadChildren: () => import('./views/map/map.module').then( m => m.MapPageModule)
+  },  {
+    path: 'location-map',
+    loadChildren: () => import('./views/location-map/location-map.module').then( m => m.LocationMapPageModule)
   }
+
 
 ];
 

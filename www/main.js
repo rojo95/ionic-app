@@ -65,7 +65,11 @@ const routes = [
     },
     {
         path: 'map',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_views_map_map_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./views/map/map.module */ 132)).then(m => m.MapPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_leaflet_dist_leaflet-src_js"), __webpack_require__.e("src_app_views_map_map_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./views/map/map.module */ 132)).then(m => m.MapPageModule)
+    },
+    {
+        path: 'location-map',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_leaflet_dist_leaflet-src_js"), __webpack_require__.e("src_app_views_location-map_location-map_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./views/location-map/location-map.module */ 8088)).then(m => m.LocationMapPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -147,6 +151,10 @@ let AppComponent = class AppComponent {
     }, {
       title: 'Maps',
       url: '/map',
+      icon: 'map'
+    }, {
+      title: 'Geolocation Map',
+      url: '/location-map',
       icon: 'map'
     }]; // appVersion = this.apiService.version;
 
