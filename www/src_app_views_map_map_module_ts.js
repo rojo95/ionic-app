@@ -186,76 +186,86 @@ let MapPage = class MapPage {
           shadowUrl: 'assets/img/map_markers/marker-shadow.png'
         })
       };
-      const coordinates = yield _this2.geolocation.getCurrentPosition();
-      _this2.coords = coordinates.coords; // zona donde se centrara el mapa
+      const coordinates = yield _this2.geolocation.getCurrentPosition().then( /*#__PURE__*/function () {
+        var _ref = (0,C_laragon_www_appIonicPruebas_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (position) {
+          /* your code */
+          _this2.coords = position.coords; // zona donde se centrara el mapa
 
-      _this2.map = new leaflet__WEBPACK_IMPORTED_MODULE_4__.Map('mapId').setView([_this2.coords.latitude, _this2.coords.longitude], 17);
-      ; // marcador ubicacion
+          _this2.map = new leaflet__WEBPACK_IMPORTED_MODULE_4__.Map('mapId').setView([_this2.coords.latitude, _this2.coords.longitude], 17);
+          ; // marcador ubicacion
 
-      _this2.usermarker = leaflet__WEBPACK_IMPORTED_MODULE_4__.marker([_this2.coords.latitude, _this2.coords.longitude], iconOrigin).addTo(_this2.map).bindPopup('Tú'); // marcador 2
+          _this2.usermarker = leaflet__WEBPACK_IMPORTED_MODULE_4__.marker([_this2.coords.latitude, _this2.coords.longitude], iconOrigin).addTo(_this2.map).bindPopup('Tú'); // marcador 2
 
-      leaflet__WEBPACK_IMPORTED_MODULE_4__.marker(_this2.objetivo, iconDestiny).addTo(_this2.map).bindPopup('Pedido'); // mapa y titulo del mapa
+          leaflet__WEBPACK_IMPORTED_MODULE_4__.marker(_this2.objetivo, iconDestiny).addTo(_this2.map).bindPopup('Pedido'); // mapa y titulo del mapa
 
-      leaflet__WEBPACK_IMPORTED_MODULE_4__.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-        attribution: 'ovnisolutions.com'
-      }).addTo(_this2.map); // configuracion de la ruta
+          leaflet__WEBPACK_IMPORTED_MODULE_4__.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            attribution: 'ovnisolutions.com'
+          }).addTo(_this2.map); // configuracion de la ruta
 
-      _this2.path = yield leaflet__WEBPACK_IMPORTED_MODULE_4__.Routing.control({
-        // createMarker: function(i: number, waypoint: any, n: number) {
-        //   const marker = Leaflet.marker(waypoint.latLng, {
-        //     draggable: false,
-        //     bounceOnAdd: false,
-        //     bounceOnAddOptions: {
-        //       duration: 1000,
-        //       height: 800,
-        //       function() {
-        //         // (bindPopup(myPopup).openOn(map))
-        //       }
-        //     },
-        //     icon: Leaflet.icon({
-        //       iconUrl: 'assets/img/map_markers/marker-icon-2x.png',
-        //       iconSize: [35, 60],
-        //       iconAnchor: [15, 59],
-        //       popupAnchor: [-3, -76],
-        //       shadowUrl: 'assets/img/map_markers/marker-shadow.png',
-        //       shadowSize: [68, 95],
-        //       shadowAnchor: [22, 94]
-        //     })
-        //   })
-        //   return marker;
-        // },
-        // router: Leaflet.Routing.osrmv1({
-        //   language: "es",
-        // }),
-        createMarker: function () {},
-        showAlternatives: true,
-        lineOptions: {
-          styles: [{
-            color: '#660fef',
-            weight: 3
-          }, {
-            color: '#fff',
-            weight: 2
-          }],
-          extendToWaypoints: false,
-          missingRouteTolerance: 0
-        },
-        fitSelectedRoutes: false,
-        altLineOptions: {
-          styles: [{
-            color: 'grey',
-            weight: 2
-          }],
-          extendToWaypoints: false,
-          missingRouteTolerance: 0
-        },
-        show: false,
-        routeWhileDragging: true,
-        draggableWaypoints: false,
-        addWaypoints: false,
-        waypoints: [leaflet__WEBPACK_IMPORTED_MODULE_4__.latLng(_this2.coords.latitude, _this2.coords.longitude), leaflet__WEBPACK_IMPORTED_MODULE_4__.latLng(_this2.objetivo)]
-      }).addTo(_this2.map);
-      (yield _this2.loading).dismiss();
+          _this2.path = yield leaflet__WEBPACK_IMPORTED_MODULE_4__.Routing.control({
+            // createMarker: function(i: number, waypoint: any, n: number) {
+            //   const marker = Leaflet.marker(waypoint.latLng, {
+            //     draggable: false,
+            //     bounceOnAdd: false,
+            //     bounceOnAddOptions: {
+            //       duration: 1000,
+            //       height: 800,
+            //       function() {
+            //         // (bindPopup(myPopup).openOn(map))
+            //       }
+            //     },
+            //     icon: Leaflet.icon({
+            //       iconUrl: 'assets/img/map_markers/marker-icon-2x.png',
+            //       iconSize: [35, 60],
+            //       iconAnchor: [15, 59],
+            //       popupAnchor: [-3, -76],
+            //       shadowUrl: 'assets/img/map_markers/marker-shadow.png',
+            //       shadowSize: [68, 95],
+            //       shadowAnchor: [22, 94]
+            //     })
+            //   })
+            //   return marker;
+            // },
+            // router: Leaflet.Routing.osrmv1({
+            //   language: "es",
+            // }),
+            createMarker: function () {},
+            showAlternatives: true,
+            lineOptions: {
+              styles: [{
+                color: '#660fef',
+                weight: 3
+              }, {
+                color: '#fff',
+                weight: 2
+              }],
+              extendToWaypoints: false,
+              missingRouteTolerance: 0
+            },
+            fitSelectedRoutes: false,
+            altLineOptions: {
+              styles: [{
+                color: 'grey',
+                weight: 2
+              }],
+              extendToWaypoints: false,
+              missingRouteTolerance: 0
+            },
+            show: false,
+            routeWhileDragging: true,
+            draggableWaypoints: false,
+            addWaypoints: false,
+            waypoints: [leaflet__WEBPACK_IMPORTED_MODULE_4__.latLng(_this2.coords.latitude, _this2.coords.longitude), leaflet__WEBPACK_IMPORTED_MODULE_4__.latLng(_this2.objetivo)]
+          }).addTo(_this2.map);
+          (yield _this2.loading).dismiss();
+        });
+
+        return function (_x) {
+          return _ref.apply(this, arguments);
+        };
+      }()).catch(err => {
+        alert('Error message : ' + err.message);
+      });
     })();
   }
 
